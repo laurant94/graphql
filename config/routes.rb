@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   post "/graphql", to: "graphql#execute"
   resources :blogs
   
+  root to: "blogs#scolar"
+  get "scolar", to:'blogs#scolar', as: :scolar
 end

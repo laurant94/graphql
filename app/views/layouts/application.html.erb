@@ -7,9 +7,40 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   </head>
 
   <body>
     <%= yield %>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#scolar",
+        data: {
+          registred: [],
+          current_id: 1,
+          message: "Salut",
+          current: {
+            id: 0,
+            name: '',
+            classe: "",
+            trimestre: ""
+          }
+        },
+        methods: {
+          addNewClasse: function(){
+            this.registred.push({
+              name: this.current.name,
+              classe: this.current.classe,
+              trimestre: this.current.trimestre
+            });
+            this.$refs.registerForm.reset();
+          }
+        }
+      })
+    </script>
   </body>
 </html>

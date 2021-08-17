@@ -1,0 +1,28 @@
+<div id="scolar">
+  <h1>{{message}}</h1> <br><br>
+  <v-form ref="registerForm">
+    <v-row>
+      <v-col>
+        <v-text-field v-model="current.name" outlined dense></v-text-field>
+      </v-col>
+      <v-col>
+        <v-text-field v-model="current.classe" outlined dense></v-text-field>
+      </v-col>
+      <v-col>
+        <v-text-field type="date" v-model="current.trimestre" outlined dense></v-text-field>
+      </v-col>
+      <v-col cols="12">
+        <v-btn color="primary" dark @click="addNewClasse">Ajouter</v-btn>
+      </v-col>
+    </v-row>
+  </v-form> <br><br><br>
+
+
+  <h1>Liste des élèves</h1> <br><br>
+  <v-row v-for="(item, index) in registred">
+    <v-col>
+      <h2> ID {{index+1}} / Nom: {{item.name}} / Cours: {{item.classe}} / Trimèstre: {{item.trimestre}} </h2>
+    </v-col>
+  </v-row>
+
+</div>
